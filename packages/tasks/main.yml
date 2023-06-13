@@ -1,0 +1,10 @@
+---
+- name: Install packages
+  apt:
+    name:
+      - nmap
+      - traceroute
+      - vim
+      - htop
+      - git
+    state: present

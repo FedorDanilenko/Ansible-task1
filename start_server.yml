@@ -1,0 +1,9 @@
+---
+- name: Start server
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - packages
+    - dns
+    - elk

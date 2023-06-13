@@ -6,10 +6,11 @@
 
 - name: Copy docker-compose.yml
   template:
-    src: elk/docker-compose.yml.j2
-    dest: /docker-compose.yml
+    src: elk/templates/docker-compose.yml.j2
+    dest: ./docker-compose/docker-compose.yml
 
 - name: Start ELK
   docker_compose:
-    project_src: /docker-compose.yml
-    state: started
+    project_src: ./docker-compose
+    state: present
+    debug: true

@@ -1,0 +1,15 @@
+---
+- name: Install docker-compose
+  apt:
+    name: docker-compose
+    state: present
+
+- name: Copy docker-compose.yml
+  template:
+    src: elk/docker-compose.yml.j2
+    dest: /docker-compose.yml
+
+- name: Start ELK
+  docker_compose:
+    project_src: /docker-compose.yml
+    state: started
